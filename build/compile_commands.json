@@ -1,0 +1,17 @@
+[
+{
+  "directory": "/home/stepanov/Documents/VS_code/C++/TerminalAdventure/build",
+  "command": "/usr/bin/g++    -g -g -o CMakeFiles/TerminalAdventure.dir/sources/main.cpp.o -c /home/stepanov/Documents/VS_code/C++/TerminalAdventure/sources/main.cpp",
+  "file": "/home/stepanov/Documents/VS_code/C++/TerminalAdventure/sources/main.cpp"
+},
+{
+  "directory": "/home/stepanov/Documents/VS_code/C++/TerminalAdventure/build",
+  "command": "/usr/bin/g++    -g -g -o CMakeFiles/TerminalAdventure.dir/sources/GameLogic/GameObjects.cpp.o -c /home/stepanov/Documents/VS_code/C++/TerminalAdventure/sources/GameLogic/GameObjects.cpp",
+  "file": "/home/stepanov/Documents/VS_code/C++/TerminalAdventure/sources/GameLogic/GameObjects.cpp"
+},
+{
+  "directory": "/home/stepanov/Documents/VS_code/C++/TerminalAdventure/build",
+  "command": "/usr/bin/g++    -g -g -o CMakeFiles/TerminalAdventure.dir/sources/WindowAndGraphics/WindowTools.cpp.o -c /home/stepanov/Documents/VS_code/C++/TerminalAdventure/sources/WindowAndGraphics/WindowTools.cpp",
+  "file": "/home/stepanov/Documents/VS_code/C++/TerminalAdventure/sources/WindowAndGraphics/WindowTools.cpp"
+}
+]

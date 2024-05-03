@@ -1,0 +1,3 @@
+/home/stepanov/Documents/VS_code/C++/TerminalAdventure/build/CMakeFiles/TerminalAdventure.dir
+/home/stepanov/Documents/VS_code/C++/TerminalAdventure/build/CMakeFiles/edit_cache.dir
+/home/stepanov/Documents/VS_code/C++/TerminalAdventure/build/CMakeFiles/rebuild_cache.dir
