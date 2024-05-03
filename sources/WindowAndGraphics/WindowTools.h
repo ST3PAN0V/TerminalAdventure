@@ -10,6 +10,8 @@
 #define SIDE_INDENTATION 52
 #define TOP_INDENTATION 10
 
+#define CRITICAL_HEALTH 20
+
 #define QUIT 1
 #define NEXT_GAME 2
 

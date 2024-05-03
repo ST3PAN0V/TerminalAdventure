@@ -98,7 +98,7 @@ int Item::GetArmor() const {
 
 //----------------------------class Stage----------------------------
 
-Stage::Stage(Hero* player, int stageNumber) : player_(player) {
+Stage::Stage(Hero* player, int stageNumber) : player_(player), stageNumber_(stageNumber) {
     switch (ObjectTypeRandomSelector(stageNumber))
     {
         case ObjectType::Enemy:
@@ -130,13 +130,21 @@ Essence* Stage::GetStageObject() const {
 void Stage::Fight() {
     Enemy* convertedToEnemy = dynamic_cast<Enemy*>(stageObject_.get());
     player_->Attack(convertedToEnemy); // throw
-    if (convertedToEnemy->GetHealth() <= 0)
-    {
+    if (convertedToEnemy->GetHealth() <= 0) {   
         player_->SetScore(player_->GetScore() + static_cast<int>(convertedToEnemy->GetEnemyType()));
-        this->stageObject_.reset();
+        if (convertedToEnemy->GetEnemyType() == EnemyType::Hard_enemy) {
+            this->stageObject_.reset();
+            ItemCreator(GetStageNumber());
+        } else {
+            this->stageObject_.reset();
+        }
         return;
     }
     convertedToEnemy->Attack(player_); // throw
+}
+
+int Stage::GetStageNumber() const {
+    return stageNumber_;
 }
 
 void Stage::UseItem() {

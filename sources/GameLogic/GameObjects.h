@@ -41,7 +41,7 @@
 
 #define HERO_HEALTH 100
 #define HERO_STRENGTH 3
-#define HERO_ARMOR 0
+#define HERO_ARMOR 10
 
 // armor calculation formula
 #define ARMOR_FORMULA(damage, armor) (damage > 0 ? static_cast<int>(armor*0.7) : armor)
@@ -175,11 +175,13 @@ public:
     void UseItem();
 
     bool StageIsClear() const;
+    int GetStageNumber() const;
     Essence* GetStageObject() const;
 
 private:
     std::unique_ptr<Essence> stageObject_;
     Hero* player_;
+    int stageNumber_;
     
     ObjectType ObjectTypeRandomSelector(int stageNumber);
     void EnemyCreator(int stageNumber);

@@ -249,7 +249,13 @@ void Printer::EndGameScreen(int score, int stage) const {
 
 void Printer::ScreenForHeroAndGame(const InfoPackage package, const int score,
         const int stage) const {
-    mvprintw(TOP_INDENTATION + 2, SIDE_INDENTATION + 6, "|Your health: %d", package.health);
+    mvprintw(TOP_INDENTATION + 2, SIDE_INDENTATION + 6, "|Your health:");
+    if (package.health <= CRITICAL_HEALTH) {
+        init_pair(1, COLOR_RED, COLOR_BLACK);
+        attron(COLOR_PAIR(1));
+        mvprintw(TOP_INDENTATION + 2, SIDE_INDENTATION + 20, "%d", package.health);
+        attroff(COLOR_PAIR(1));
+    } else mvprintw(TOP_INDENTATION + 2, SIDE_INDENTATION + 20, "%d", package.health);
     mvprintw(TOP_INDENTATION + 4, SIDE_INDENTATION + 6, "|Your strength: %d", package.strenght);
     mvprintw(TOP_INDENTATION + 6, SIDE_INDENTATION + 6, "|Your armor: %d", package.armor);
 
@@ -261,8 +267,31 @@ void Printer::ScreenForHeroAndGame(const InfoPackage package, const int score,
 }
 
 void Printer::ScreenForEnemy(const InfoPackage package) const {
-    mvprintw(TOP_INDENTATION + 2, SIDE_INDENTATION + 76, "|Enemy type: %s",
-                GetStrFromEnumEnemy(package.enemyType).c_str());
+    mvprintw(TOP_INDENTATION + 2, SIDE_INDENTATION + 76, "|Enemy type:");
+    switch (package.enemyType)
+    {
+    case EnemyType::Weak_enemy:
+        init_pair(3, COLOR_CYAN, COLOR_BLACK);
+        attron(COLOR_PAIR(3));
+        mvprintw(TOP_INDENTATION + 2, SIDE_INDENTATION + 89, "%s", GetStrFromEnumEnemy(package.enemyType).c_str());
+        attroff(COLOR_PAIR(3));
+        break;
+    case EnemyType::Medium_enemy:
+        init_pair(2, COLOR_BLUE, COLOR_BLACK);
+        attron(COLOR_PAIR(2));
+        mvprintw(TOP_INDENTATION + 2, SIDE_INDENTATION + 89, "%s", GetStrFromEnumEnemy(package.enemyType).c_str());
+        attroff(COLOR_PAIR(2));
+        break;
+    case EnemyType::Hard_enemy:
+        init_pair(1, COLOR_MAGENTA, COLOR_BLACK);
+        attron(COLOR_PAIR(1));
+        mvprintw(TOP_INDENTATION + 2, SIDE_INDENTATION + 89, "%s", GetStrFromEnumEnemy(package.enemyType).c_str());
+        attroff(COLOR_PAIR(1));
+        break;
+    default:
+        mvprintw(TOP_INDENTATION + 2, SIDE_INDENTATION + 89, "%s", GetStrFromEnumEnemy(package.enemyType).c_str());
+        break;
+    }
     mvprintw(TOP_INDENTATION + 4, SIDE_INDENTATION + 76, "|Enemy health: %d", package.health);
     mvprintw(TOP_INDENTATION + 6, SIDE_INDENTATION + 76, "|Enemy strength: %d", package.strenght);
     mvprintw(TOP_INDENTATION + 8, SIDE_INDENTATION + 76, "|Enemy armor: %d", package.armor);
