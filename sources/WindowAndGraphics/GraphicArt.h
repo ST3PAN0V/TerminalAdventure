@@ -40,13 +40,13 @@ std::vector<std::string> foundationGRAPHIC =
 
 std::vector<std::string> heroGRAPHIC =
 {
-    "*          *   ",
-    "   *           ",
-    "       *      *",
+    "*      *       ",
+    "   *         * ",
+    "     ^ ^   +   *",
     "    (D_ D)/    ",
     " * <[VAN]/  *  ",
-    "     L L   *   ",
-    "  *        *   "
+    "     L L       ",
+    "  *       *    "
 };
 
 std::vector<std::string> weakEnemyGRAPHIC =
@@ -55,7 +55,7 @@ std::vector<std::string> weakEnemyGRAPHIC =
     "   *           ",
     "      ____    *",
     "     (0_ 0)    ",
-    " *   /[  ]\\   ",
+    " *   /[--]\\   ",
     "       ||*     ",
     "  *        *   "
 };

@@ -19,24 +19,24 @@
 #define CHANCE_EVIL_POTION(stage) (40)
 
 // characteristics
-#define WEAK_ENEMY_HEALTH(stage) (10 + stage/5)
-#define WEAK_ENEMY_STRENGTH(stage) (1 + stage/15)
-#define WEAK_ENEMY_ARMOR(stage) (0)
+#define WEAK_ENEMY_HEALTH(stage) (10 + stage/5 + (stage/50)*4)
+#define WEAK_ENEMY_STRENGTH(stage) (1 + stage/15 + (stage/50)*1)
+#define WEAK_ENEMY_ARMOR(stage) (0+ (stage/100)*5)
 
-#define MEDIUM_ENEMY_HEALTH(stage) (15 + stage/4)
-#define MEDIUM_ENEMY_STRENGTH(stage) (2 + stage/13)
-#define MEDIUM_ENEMY_ARMOR(stage) (0 + stage/25)
+#define MEDIUM_ENEMY_HEALTH(stage) (15 + stage/4 + (stage/50)*4)
+#define MEDIUM_ENEMY_STRENGTH(stage) (2 + stage/13 + (stage/100)*2)
+#define MEDIUM_ENEMY_ARMOR(stage) (0 + stage/25 + (stage/50)*3)
 
-#define HARD_ENEMY_HEALTH(stage) (20 + stage/3)
-#define HARD_ENEMY_STRENGTH(stage) (3 + stage/11)
-#define HARD_ENEMY_ARMOR(stage) (3 + stage/25*2)
+#define HARD_ENEMY_HEALTH(stage) (20 + (stage/3)*2 + (stage/100)*30)
+#define HARD_ENEMY_STRENGTH(stage) (3 + (stage/25)*2 + (stage/100)*4)
+#define HARD_ENEMY_ARMOR(stage) (3 + (stage/15)*2 + (stage/100)*5)
 
 #define GOOD_POTION_HEALTH(stage) (10 + stage/5*2)
-#define GOOD_POTION_STRENGTH(stage) (1 + stage/15)
-#define GOOD_POTION_ARMOR(stage) (1 + stage/20)
+#define GOOD_POTION_STRENGTH(stage) (2 + stage/15*2)
+#define GOOD_POTION_ARMOR(stage) (5 + stage/10*2)
 
-#define EVIL_POTION_HEALTH(stage) ((10 + stageNumber/5)*(-1))
-#define EVIL_POTION_STRENGTH(stage) ((1 + stageNumber/20)*(-1))
+#define EVIL_POTION_HEALTH(stage) ((10 + stageNumber/5) + (stage/50)*10)*(-1)
+#define EVIL_POTION_STRENGTH(stage) ((1 + stageNumber/20) + (stage/50)*2)*(-1)
 #define EVIL_POTION_ARMOR(stage) (0)
 
 #define HERO_HEALTH 100
@@ -45,7 +45,7 @@
 
 // armor calculation formula
 #define ARMOR_FORMULA(damage, armor) (damage > 0 ? static_cast<int>(armor*0.7) : armor)
-#define HEALTH_FORMULA(xp, damage, armor) (xp - (armor > 0 ? (damage - ((armor/2)+1)) : (damage)))
+#define HEALTH_FORMULA(xp, damage, armor) (xp - (armor > 0 ? ((damage - ((armor/2)+1)) < 0 ? 1 : (damage - ((armor/2)+1)))  : (damage)))
 
 // skip stage
 #define START_COUNT_SKIP 3

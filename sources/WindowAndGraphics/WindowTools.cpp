@@ -232,9 +232,9 @@ void Printer::PrintFoundation() const {
 void Printer::WelcomeScreen() const {
     mvprintw(TOP_INDENTATION + 10, SIDE_INDENTATION + 31, "Hi! It's a TerminalAdventure!");
     mvprintw(TOP_INDENTATION + 12, SIDE_INDENTATION + 12, "Complete as many stages as possible and get as many points as possible.");
-    mvprintw(TOP_INDENTATION + 14, SIDE_INDENTATION + 20, "You can see hints and commands in the lower left corner.");
+    mvprintw(TOP_INDENTATION + 14, SIDE_INDENTATION + 19, "You can see hints and commands in the lower left corner.");
 
-    mvprintw(TOP_INDENTATION + 14, SIDE_INDENTATION + 39, "Press any key to start!");
+    mvprintw(TOP_INDENTATION + 16, SIDE_INDENTATION + 34, "Press any key to start!");
 }
 
 void Printer::EndGameScreen(int score, int stage) const {
@@ -251,10 +251,10 @@ void Printer::ScreenForHeroAndGame(const InfoPackage package, const int score,
         const int stage) const {
     mvprintw(TOP_INDENTATION + 2, SIDE_INDENTATION + 6, "|Your health:");
     if (package.health <= CRITICAL_HEALTH) {
-        init_pair(1, COLOR_RED, COLOR_BLACK);
-        attron(COLOR_PAIR(1));
+        init_pair(4, COLOR_RED, COLOR_BLACK);
+        attron(COLOR_PAIR(4));
         mvprintw(TOP_INDENTATION + 2, SIDE_INDENTATION + 20, "%d", package.health);
-        attroff(COLOR_PAIR(1));
+        attroff(COLOR_PAIR(4));
     } else mvprintw(TOP_INDENTATION + 2, SIDE_INDENTATION + 20, "%d", package.health);
     mvprintw(TOP_INDENTATION + 4, SIDE_INDENTATION + 6, "|Your strength: %d", package.strenght);
     mvprintw(TOP_INDENTATION + 6, SIDE_INDENTATION + 6, "|Your armor: %d", package.armor);
