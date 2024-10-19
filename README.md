@@ -28,4 +28,6 @@ There are endless floors and two types of creatures: potions, enemies. With each
 ## **Plans and updates**
 If I continue to develop the game, I will add attack animations and new entities, such as chests and swords.
 
+Add Docker for simple building the game.
+
 If you have any suggestions or recommendations, please write to **_@ArtemS101_** in telegram!
