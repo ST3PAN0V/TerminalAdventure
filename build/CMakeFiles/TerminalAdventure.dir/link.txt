@@ -1,1 +1,0 @@
-/usr/bin/g++  -g -g CMakeFiles/TerminalAdventure.dir/sources/main.cpp.o CMakeFiles/TerminalAdventure.dir/sources/GameLogic/GameObjects.cpp.o CMakeFiles/TerminalAdventure.dir/sources/WindowAndGraphics/WindowTools.cpp.o -o TerminalAdventure  -lncurses 
