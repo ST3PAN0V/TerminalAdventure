@@ -2,14 +2,18 @@
 A simple terminal game!
 
 # How to run game
+
+linux:
 ```bash
 git clone https://github.com/ST3PAN0V/TerminalAdventure.git
 cd TerminalAdventure
-mkdir build && cd build
-cmake ..
-cmake --build .
-./TerminalAdventure
+sudo docker build -t TerminalAdventure .
+sudo docker run --rm -it --entrypoint bash TerminalAdventure
+
+-- Inside a Docker container
+cd app/build/ && ./TerminalAdventure
 ```
+
 *Have fun!*
 
 ## **How does the game work?**
@@ -27,7 +31,5 @@ There are endless floors and two types of creatures: potions, enemies. With each
 
 ## **Plans and updates**
 If I continue to develop the game, I will add attack animations and new entities, such as chests and swords.
-
-Add Docker for simple building the game.
 
 If you have any suggestions or recommendations, please write to **_@ArtemS101_** in telegram!
